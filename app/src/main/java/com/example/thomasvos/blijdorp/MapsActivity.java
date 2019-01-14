@@ -1,7 +1,11 @@
 package com.example.thomasvos.blijdorp;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,6 +26,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
 
@@ -38,9 +43,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                mMap.setMyLocationEnabled(true);
+            }
+        } else {
+            mMap.setMyLocationEnabled(true);
+        }
+
+        // Add a marker in Blijdorp and move the camera
+        LatLng Hoofdingang = new LatLng(51.928193, 4.443830);
+        mMap.addMarker(new MarkerOptions().position(Hoofdingang).title("Hoofdingang van Blijdorp"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Hoofdingang, 18f));
+
+        LatLng Ingang2 = new LatLng( 51.925530, 4.454018);
+        mMap.addMarker(new MarkerOptions().position(Ingang2).title("De tweede ingang"));
+
+
+        LatLng Ijsberen = new LatLng( 51.927349, 4.445087);
+        mMap.addMarker(new MarkerOptions().position(Ijsberen).title("Ijsberenverblijf"));
+
+        LatLng Bizonverblijf = new LatLng( 51.927530, 4.446149);
+        mMap.addMarker(new MarkerOptions().position(Bizonverblijf).title("Bizonverblijf"));
+
     }
 }
