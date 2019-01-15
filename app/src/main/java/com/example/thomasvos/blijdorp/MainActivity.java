@@ -26,9 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Calendar c = Calendar.getInstance();
         String sDate = c.get(Calendar.HOUR_OF_DAY) + ":"
                 + c.get(Calendar.MINUTE);
-
         TextView Tijd = (TextView) findViewById(R.id.textView30);
-
         // textView is the TextView view that should display it
         Tijd.setText(sDate);
     }
