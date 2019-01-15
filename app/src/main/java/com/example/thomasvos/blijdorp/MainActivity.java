@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,11 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView Tijd = (TextView) findViewById(R.id.textView30);
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        Calendar c = Calendar.getInstance();
+        String sDate = c.get(Calendar.HOUR_OF_DAY) + ":"
+                + c.get(Calendar.MINUTE);
 
-// textView is the TextView view that should display it
-        Tijd.setText(currentDateTimeString);
+        TextView Tijd = (TextView) findViewById(R.id.textView30);
+
+        // textView is the TextView view that should display it
+        Tijd.setText(sDate);
     }
 
 
