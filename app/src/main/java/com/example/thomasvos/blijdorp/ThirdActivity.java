@@ -13,8 +13,15 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_third);
     }
 
-    public void startMapsActivity(View view){
+    public void startRouteActivity(View view){
         Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("ROUTE", 1);
+        startActivity(intent);
+    }
+
+    public void startRoute2Activity(View view){
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("ROUTE", 2);
         startActivity(intent);
     }
 

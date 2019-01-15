@@ -6,6 +6,7 @@ import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -41,7 +42,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
 
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -54,6 +54,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setMyLocationEnabled(true);
         }
 
+        mMap = googleMap;
+        int route = getIntent().getIntExtra("ROUTE", 0);
+
+
         // Add a marker in Blijdorp and move the camera
         LatLng Hoofdingang = new LatLng(51.928193, 4.443830);
         mMap.addMarker(new MarkerOptions().position(Hoofdingang).title("Hoofdingang van Blijdorp"));
@@ -62,12 +66,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Ingang2 = new LatLng( 51.925530, 4.454018);
         mMap.addMarker(new MarkerOptions().position(Ingang2).title("De tweede ingang"));
 
+        if (route == 1) {
+            LatLng Ijsberen = new LatLng(51.927349, 4.445087);
+            mMap.addMarker(new MarkerOptions().position(Ijsberen).title("Ijsberenverblijf 10:00 en 14:00"));
 
-        LatLng Ijsberen = new LatLng( 51.927349, 4.445087);
-        mMap.addMarker(new MarkerOptions().position(Ijsberen).title("Ijsberenverblijf"));
+            LatLng Bizonverblijf = new LatLng(51.927530, 4.446149);
+            mMap.addMarker(new MarkerOptions().position(Bizonverblijf).title("Bizonverblijf 10:30 en 14:30"));
 
-        LatLng Bizonverblijf = new LatLng( 51.927530, 4.446149);
-        mMap.addMarker(new MarkerOptions().position(Bizonverblijf).title("Bizonverblijf"));
+            LatLng Oceanium = new LatLng(51.928613, 4.445264);
+            mMap.addMarker(new MarkerOptions().position(Oceanium).title("Oceanium 11:00 en 15:00"));
+        }
 
+        else if (route ==2) {
+            LatLng Leeuwen = new LatLng(51.927349, 4.445087);
+            mMap.addMarker(new MarkerOptions().position(Leeuwen).title("Leeuwen 10:00 en 14:00"));
+
+            LatLng Amazonica = new LatLng(51.927530, 4.446149);
+            mMap.addMarker(new MarkerOptions().position(Amazonica).title("Amazonica 10:30 en 14:30"));
+
+            LatLng Vogelvoorstelling = new LatLng(51.928613, 4.445264);
+            mMap.addMarker(new MarkerOptions().position(Vogelvoorstelling).title("Vogelvoorstelling 11:00 en 15:00"));
+        }
+        else {
+            
+        }
     }
 }
