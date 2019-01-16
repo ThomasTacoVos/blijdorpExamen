@@ -1,12 +1,14 @@
 package com.example.thomasvos.blijdorp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -113,5 +115,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         }
 
+
+    }
+
+    public void startMainActivity(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
