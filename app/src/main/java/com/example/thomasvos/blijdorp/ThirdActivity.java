@@ -29,11 +29,6 @@ public class ThirdActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void startRoute2Activity(View view){
-        Intent intent = new Intent(this, MapsActivity.class);
-        intent.putExtra("ROUTE", 2);
-        startActivity(intent);
-    }
 
     public void startMainActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);

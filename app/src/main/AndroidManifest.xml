@@ -40,7 +40,8 @@
         </activity>
         <activity android:name=".MapsActivity" />
         <activity android:name=".SecondActivity" />
-        <activity android:name=".ThirdActivity"></activity>
+        <activity android:name=".ThirdActivity" />
+        <activity android:name=".FourthActivity"></activity>
     </application>
 
 </manifest>

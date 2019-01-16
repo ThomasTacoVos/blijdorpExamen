@@ -77,14 +77,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng Oceanium = new LatLng(51.928613, 4.445264);
             mMap.addMarker(new MarkerOptions().position(Oceanium).title("Oceanium 11:00 en 15:00"));
 
-            LatLng Leeuwen = new LatLng(51.928387, 4.449838);
-            mMap.addMarker(new MarkerOptions().position(Leeuwen).title("Leeuwen 10:00 en 14:00"));
-
-            LatLng Amazonica = new LatLng(51.927984, 4.447261);
-            mMap.addMarker(new MarkerOptions().position(Amazonica).title("Amazonica 10:30 en 14:30"));
-
-            LatLng Vogelvoorstelling = new LatLng(51.927205, 4.446924);
-            mMap.addMarker(new MarkerOptions().position(Vogelvoorstelling).title("Vogelvoorstelling 11:00 en 15:00"));
+//            LatLng Leeuwen = new LatLng(51.928387, 4.449838);
+//            mMap.addMarker(new MarkerOptions().position(Leeuwen).title("Leeuwen 10:00 en 14:00"));
+//
+//            LatLng Amazonica = new LatLng(51.927984, 4.447261);
+//            mMap.addMarker(new MarkerOptions().position(Amazonica).title("Amazonica 10:30 en 14:30"));
+//
+//            LatLng Vogelvoorstelling = new LatLng(51.927205, 4.446924);
+//            mMap.addMarker(new MarkerOptions().position(Vogelvoorstelling).title("Vogelvoorstelling 11:00 en 15:00"));
 
         }
 
